@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Triodion&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizzard</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+
+    <link rel='manifest' href='/static/manifest.webmanifest'>
+
+    <script>
+        window.onload = function() {
+            if ('serviceWorker' in navigator){
+                navigator.serviceWorker.register('/service-worker.js').then(function(registration){
+                    registration.update();
+                })
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="page-header hidden">
+        <button onclick="window.assistant.graphPage.show()">
+            <img src="/static/icons/back.svg" alt="">
+        </button>
+        <h1></h1>
+    </div>
+    <main>
+        <div class="glowing-orb"></div>
+        <div class="page-content">
+            <div class="upload-page hidden page" id="upload-page">
+                <h1>Hey, what do you want to learn today?</h1>
+                <label class="upload-box" for="files-upload"></label>
+                <input id='files-upload' type='file' onchange="window.assistant.uploadPage.updateFiles()">
+                <div class="uploading-file-text hidden">Uploading files...</div>
+            </div>
+            <div id="topic-page" class="hidden page">
+                <div class="assistant-text"></div>
+            </div>
+            
+            <div id="question-page" class="hidden page">
+                <div class="assistant-text"></div>
+                <div class="input-mic">
+                    <input type="text" id="question-input" placeholder="Type your question here">
+                    <button id="question-record-button">
+                        <img src="/static/icons/microphone.svg" alt="">
+                    </button>
+                </div>
+            </div>
+
+            <div id="graph-page" class="page hidden">
+            </div>
+            <div id="quiz-page" class="page hidden">
+                <div class="assistant-text"></div>
+                <input type="range" min="1" max="5" value="1" id="quiz-understanding">
+                <div class="input-mic">
+                    <input type="text" placeholder="Type your answer here" id="quiz-answer">
+                    <button id="quiz-record-button">
+                        <img src="/static/icons/microphone.svg" alt="">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="button-options">
+            
+        </div>
+    </main>
+
+    <audio controls class="hidden" id="main-audio">
+        <source src="/static/audio.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script type="module" src="./static/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'dark',
+            background: '#121215',
+            themeVariables: {
+                primaryTextColor: '#ffffff',
+                primaryColor: '#3b6dec',
+                lineColor: '#ffffff',
+                textColor: '#ffffff'
+            }
+        });
+    </script>
+</body>
+</html>

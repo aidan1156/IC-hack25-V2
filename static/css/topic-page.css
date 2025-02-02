@@ -1,0 +1,32 @@
+
+#topic-page {
+    max-width: 40em;
+    width: auto;
+}
+
+.assistant-text {
+    position: relative;
+    max-height: 15em;
+    overflow: auto;
+}
+
+.assistant-text::before {
+    content: "";
+    background-image: linear-gradient(var(--background-colour), rgba(0, 0, 0, 0));
+    position: sticky;
+    top: 0px;
+    width:100%;
+    height: 2em;
+    display: block;
+    z-index: 1;
+}
+
+.assistant-text::after {
+    content: "";
+    background-image: linear-gradient( rgba(0, 0, 0, 0), var(--background-colour));
+    position: sticky;
+    bottom: 0px;
+    width:100%;
+    height: 2em;
+    display: block;
+}

@@ -1,0 +1,214 @@
+@import url('/static/css/upload-page.css');
+@import url('/static/css/topic-page.css');
+@import url('/static/css/graph-page.css');
+
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+body {
+    --background-colour: #121215;
+    background-color: var(--background-colour);
+    font-family: "Triodion", serif;
+    font-weight: 400;
+    font-style: normal;
+    /* font-family: "Merriweather", serif;
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal; */
+
+    color: white;
+}
+
+main {
+    padding: 1em;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+.page {
+    margin: auto;
+    width: min(30em, 100%);
+}
+button {
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    border: none;
+    border-radius: 0.5em;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    margin: 0.5em;
+}
+
+input[type="text"] {
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 1em;
+    display: block;
+    width:100%;
+    padding: 1em 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font: inherit;
+    color: inherit;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus {
+    outline: none;
+}
+
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: calc(34px + 1em);
+    background: transparent;
+    outline: none;
+    border: 2px solid white;
+    border-radius: 1em;
+    padding: 0.5em;
+    box-sizing: border-box;
+}
+
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 30px;
+    background: white;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+
+.glowing-orb {
+    margin: auto;
+    margin-top: 4em;
+    margin-bottom: 4em;
+    border-radius: 50%;
+    background-image: linear-gradient(#3b6dec, #7c95e9, #8e75ef);
+    filter: blur(2em);
+
+    width: 10em;
+    height: 10em;
+    animation: bg-slide 1s infinite alternate;
+    background-size: 200% 200%;
+}
+
+.glowing-orb.thinking {
+    transform-origin: 50% 50%;
+    animation: grow-shrink 0.7s infinite alternate;
+}
+
+@keyframes grow-shrink {
+    0% {
+        transform: scale(0.9);
+        filter: blur(2em);
+    }
+
+    100% {
+        transform: scale(1.1);
+        filter: blur(3em);
+    }
+}
+
+@keyframes bg-slide {
+    0% {
+        background-position: 1% 0%;
+        transform: rotate(0deg);
+    }
+
+    100% {
+        background-position: 90% 100%;
+        transform: rotate(180deg);
+    }
+}
+
+.page-content {
+    flex: 1;
+}
+
+.page-content h1 {
+    font: inherit;
+    color: white;
+    text-align: center;
+    font-size: 1.4em;
+}
+
+.button-options {
+    display: flex;
+    justify-content: center;
+}
+
+.button-options > button {
+    display: flex;
+    align-content: center;
+    gap: 0.5em;
+    font-size: 1.2em;
+}
+
+.button-options > button > * {
+    margin: auto;
+}
+
+.page-header {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 1em;
+    display: flex;
+}
+
+.page-header h1 {
+    margin: 0;
+    font: inherit;
+    font-size: 1.2em;
+    place-self: center;
+}
+
+.page-header button img {
+    vertical-align: middle;
+}
+
+
+.assistant-text > span {
+    opacity: 0;
+    animation: fade-in 1s var(--delay, 0s) forwards;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.input-mic {
+    position: relative;
+}
+
+.input-mic button {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 2em;
+    padding: 0;
+    padding-right: 1em;
+}
+
+.input-mic input {
+    padding-right: 3em;
+}

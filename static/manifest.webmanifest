@@ -1,0 +1,20 @@
+{
+    "short_name": "Quizzard",
+    "name": "Quizzard",
+    "icons": [
+      {
+        "src": "/static/icons/icon.png",
+        "type": "image/png",
+        "sizes": "192x192",
+        "purpose": "any maskable"
+      }
+    ],
+    "id": "/",
+    "start_url": "/",
+    "background_color": "#121215",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#121215",
+    "description": "Learn topics easily with Quizzard",
+    "handle_links": "preferred"
+}

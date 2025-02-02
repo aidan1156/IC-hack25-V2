@@ -1,0 +1,23 @@
+
+
+#graph-page svg .nodeLabel {
+    cursor: pointer;
+}
+
+#graph-page {
+    width: auto;
+    margin: auto;
+}
+
+.mermaid {
+    display: flex;
+}
+
+.mermaid svg {
+    margin: auto;
+}
+
+#graph-page svg rect {
+    rx: 15px;
+    ry: 15px;
+}
